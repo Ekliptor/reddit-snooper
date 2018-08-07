@@ -69,6 +69,7 @@ module.exports = function (snooper_options) {
                 //let children = body.data.children
                 if (!body || !body.data)
                     return cb("Subreddit doesn't exist: " + start_page)
+                // TODO generate blacklist of urls? crawler doesn't fetch it again and we want to show it in log to remove it from config
                 let children = body.data.children
                 //Ekliptor< crash fix if subdreddit doesn't exist
 
