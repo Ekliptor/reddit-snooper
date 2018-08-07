@@ -65,7 +65,12 @@ module.exports = function (snooper_options) {
                     cb(err)
                 }
 
+                //Ekliptor> crash fix if subdreddit doesn't exist
+                //let children = body.data.children
+                if (!body || !body.data)
+                    return cb("Subreddit doesn't exist: " + start_page)
                 let children = body.data.children
+                //Ekliptor< crash fix if subdreddit doesn't exist
 
                 if (children.length > 0) {
                     if (!after_name && cb_first_item) cb_first_item(children[0].data.name)
